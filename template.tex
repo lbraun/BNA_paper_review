@@ -57,6 +57,10 @@
 \usepackage{arydshln}
 \usepackage{dirtytalk}
 \usepackage{xcolor}
+\usepackage[skins]{tcolorbox}
+\usepackage{ulem}
+\tcbset{commonstyle/.style={boxrule=0pt,sharp corners,enhanced jigsaw,nobeforeafter,boxsep=0pt,left=\fboxsep,right=\fboxsep}}
+\newtcolorbox{mycolorbox}[1][]{commonstyle,#1}
 
 %=================================================================
 %% Please use the following mathematics environments:
@@ -85,7 +89,7 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{Quantifying Bicycle Network Connectivity in Lisbon using Open Data}
+\Title{Quantifying Bicycle Network Connectivity in Lisbon using Open Data $^\dagger$}
 
 % Authors, for the paper (add full first names)
 \Author{Lorena Abad $^{*}$ and Lucas van der Meer}
@@ -99,7 +103,7 @@
 \corres{Correspondence: lore.abad6@gmail.com}
 
 % Current address and/or shared authorship
-%\firstnote{These authors contributed equally to %this work.}
+\firstnote{This paper is an extended version of our paper published in the workshop ``Open Data for Open Cities V~2.0'', Lund, Sweden, 12 June 2018.}
 
 % Simple summary
 %\simplesumm{}
@@ -137,9 +141,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Stimulating non-motorized transport has been one of the many strategies adopted by cities to tackle climate change \cite{Banister2011} and improve their inhabitants' living conditions. It is not only a way to improve our environment, by decreasing air pollution and energy consumption \cite{Fraser2011}; but also to ameliorate citizens health \cite{DeHartog2010}, reduce traffic jams \cite{Kosha2016}, and reactivate public spaces \cite{deManuelJerez2016LasAlcosa}. Therefore, investing in cycling and pedestrian infrastructure becomes a vital axis of transportation policies in metropolitan areas.
+Stimulating non-motorized transport has been one of the many strategies adopted by cities to tackle climate change \cite{Banister2011} and improve their inhabitants' living conditions. It is not only a way to improve our environment, by decreasing air pollution and energy consumption \cite{Fraser2011}; but also to ameliorate citizens' health \cite{DeHartog2010}, reduce traffic jams \cite{Kosha2016}, and reactivate public spaces \cite{DeManuelJerez2016}. Therefore, investing in cycling and pedestrian infrastructure becomes a vital axis of transportation policies in metropolitan areas.
 
-The city of Lisbon has undertaken this investment, by implementing new cycleways and bike-sharing stations. The municipality hopes to turn the bicycle into a mean of transport that, along with public transportation, will enable save and efficient short distance journeys up to six kilometers \cite{CamaraMunicipaldeLisboa}. This is happening in a city where 89\% of commuters use a private vehicle \cite{CamaraMunicipaldeLisboa2016}, with a car occupancy of 1.2 passengers per vehicle \cite{Silva2017}. The municipality originally presented a plan in which 200 km of cycleways (Fig. \ref{fig1}) would be implemented into the cities infrastructure by 2018 \cite{Susete2016}. However, for early 2018, only 80 km of them had been built. Finalization of the complete network is now planned for 2020 \cite{Andre2018}.
+The city of Lisbon has undertaken this investment, by implementing new cycle ways and bike-sharing stations. The municipality hopes to turn the bicycle into a mean of transport that, along with public transportation, will enable save and efficient short distance journeys up to six kilometers \cite{CamaraMunicipaldeLisboa}. This is happening in a city where 89\% of commuters use a private vehicle \cite{CamaraMunicipaldeLisboa2016}, with a car occupancy of 1.2 passengers per vehicle \cite{Silva2017}. The municipality originally presented a plan in which 200 km of cycle ways (Fig. \ref{fig1}) would be implemented into the cities infrastructure by 2018 \cite{Susete2016}. However, for early 2018, only 80 km of them had been built. Finalization of the complete network is now planned for 2020 \cite{Andre2018}.
 
 \begin{figure}[ht]
 	\begin{center}
@@ -149,13 +153,13 @@ The city of Lisbon has undertaken this investment, by implementing new cycleways
 	\end{center}
 \end{figure}
 
-In the meantime, Lisbon's cyclists increase in number \cite{Baratto2016LisboaCiclistas}, which emphasizes the need to invest in well-connected and safe infrastructure, not only for a continuous commuting trip, but also for reaching common destinations (e.g. schools, universities, supermarkets, hospitals). Quantifying its connectivity can help evaluate the current state of the bicycle network and point out specific challenges that should be faced. Using data sources open to the common public should be promoted for such inquiries, given their ease of access, constant updates, reproducibility, and knowledge sharing boost \cite{opendatahandbook,EuropeanDataPortal2018BenefitsData}. Therefore, the aim of this study is to develop an exploratory score that allows a quantification of the bicycle network connectivity in Lisbon based on open data, as a first attempt to apply such an index into a European city with a developing biking infrastructure.
+In the meantime, Lisbon's cyclists increase in number \cite{Baratto2016}, which emphasizes the need to invest in well-connected and safe infrastructure, not only for a continuous commuting trip, but also for reaching common destinations (e.g. schools, universities, supermarkets, hospitals). Quantifying its connectivity can help evaluate the current state of the bicycle network and point out specific challenges that should be faced. Using data sources open to the common public should be promoted for such inquiries, given their ease of access, constant updates, reproducibility, and knowledge sharing boost \cite{opendatahandbook,EuropeanDataPortal2018}. Therefore, the aim of this study is to develop an exploratory score that allows a quantification of the bicycle network connectivity in Lisbon based on open data, as a first attempt to apply such an index into a European city with a developing biking infrastructure.
 
 The remainder of this paper will be structured as follows: Section \ref{pfb} overviews the related work, and in particular a specific approach on which the study is based. Section \ref{methods} details the adapted methodology applied to address the particular case of Lisbon study area. Section \ref{results} presents the main results, discusses them within the city context, and compares them to other cities' examples. Section \ref{conclusion} concludes the report and finally, section \ref{future} gives directions for future research and development.
 
 \section{PeopleForBikes \textquotedblleft Bike Network Analysis score\textquotedblright approach} \label{pfb}
 
-Bicycle network analyses have been undertaken from several angles, making use of GIS tools \cite{Manum2013,Cooper2017}. A recurrent approach within the literature is the level of traffic stress (LTS) \cite{Sorton1994,Geller2006}. Mekuria et al. \cite{Mekuria2012} proposed a scheme to classify the road segments in four LTS, ranging from LTS 1, – the level suitable for children - to 4 – the level tolerated by the “strong and fearless” cyclists. Their approach includes an analysis of the network connectivity with a thorough review of every segment and crossing, allowing an integral characterization of the bike network and assigning each section a stress level. 
+Bicycle network analyses have been undertaken from several angles, making use of GIS tools \cite{Manum2013,Cooper2017}. A recurrent approach within the literature is the level of traffic stress (LTS) \cite{Sorton1994,Geller2006}. Mekuria et al. \cite{Mekuria2012b} proposed a scheme to classify the road segments in four LTS, ranging from LTS 1, – the level suitable for children - to 4 – the level tolerated by the “strong and fearless” cyclists. Their approach includes an analysis of the network connectivity with a thorough review of every segment and crossing, allowing an integral characterization of the bike network and assigning each section a stress level. 
 
 Based on slightly modified LTS, the \href{https://peopleforbikes.org/}{PeopleForBikes} organization developed a scoring system, named \textit{Bike Network Analysis score} (BNA score), to determine how people in a city can get to common destinations on a comfortable and connected bike network \cite{PeopleforBikes2014}. The score is computed by counting the total number of common destination points accessible within 10 minutes on a low-stress bike network from an origin census block. A scoring scale between 0 and 100 is assigned to each destination type, on a stepped manner. Finally, the scores for all census blocks are aggregated in a weighted averaged fashion, to get to one score for the whole city. PeopleForBikes targets USA cities and towns, basing their analysis mainly on OpenStreetMap and US Census data. This paper will be guided on their \href{https://github.com/azavea/pfb-network-connectivity}{open source} methodology to develop a BNA score for the city of Lisbon.
 
@@ -168,13 +172,15 @@ The computation of the BNA score for Lisbon in this paper is based solely on ope
 The OSM data was downloaded in February 2018 through the built-in QGIS tool and uploaded into a PostgreSQL database using two formats: the \textit{osm2pgrouting} bicycle map
 configuration .XML file to generate edges/segments and nodes/intersections tables, and the \textit{osm2pgsql} adjusted to the .STYLE file from PeopleForBikes to generate points, lines, and polygon base data. 
 
-The \href{http://geodados.cm-lisboa.pt/}{CML data} consisted of the Lisbon's Council outline, the Parishes corresponding to the Council, and the currently existing cycleways. The Parishes data were combined with their corresponding population obtained from the \href{http://censos.ine.pt/}{2011 Census}. 
+The \href{http://geodados.cm-lisboa.pt/}{CML data} consisted of the Lisbon's Council outline, the Parishes corresponding to the Council, and the currently existing cycle ways. The Parishes data were combined with their corresponding population obtained from the \href{http://censos.ine.pt/}{2011 Census}. 
 
-The PeopleForBikes methodology includes census blocks as units of analysis. As this information was not available for the study area, a hexagonal grid overlying Lisbon Council was generated to perform the network analysis on a smaller scale, allowing a local evaluation of the resulting stress network. A hexagonal shape was selected over a rectangular grid as the area partition is based on cells with identical neighbors and minimal edge effect \cite{Strimas-Mackey2016}. Each hexagon in the grid had a x-spacing of 200 m. This value was arbitrarily chosen, but based on the underlying idea that all destinations in a single cell should be on a reasonable walking distance from each other. The population fraction correspondent to each cell was calculated from the parishes population, by simply dividing the total population of a parish by the number of grid cells that belong predominately to that parish.
+The PeopleForBikes methodology includes census blocks as units of analysis. \begin{mycolorbox}[colback=yellow]
+\sout{As this information was not available for the study area, a hexagonal grid overlying Lisbon Council was generated to perform the network analysis on a smaller scale, allowing a local evaluation of the resulting stress network.} However, information at this administrative level was not available for the study area. Therefore, a hexagonal grid was overlaid onto the Lisbon Council to perform the analysis at a higher spatial resolution, and evaluate the stress network results locally. A hexagonal shape was selected over a rectangular grid as it reduces the bias of the edge-effect generating a more symmetrical neighbourhood and thus being more convenient for connectivity analyses \cite{Birch2007}.
+\end{mycolorbox} Each hexagon in the grid had a x-spacing of 200 m. This value was arbitrarily chosen, but based on the underlying idea that all destinations in a single cell should be on a reasonable walking distance from each other. The population fraction correspondent to each cell was calculated from the parishes population, by simply dividing the total population of a parish by the number of grid cells that belong predominately to that parish.
 
 For the pre-processing, all the data were projected to ETRS89 / Portugal TM06 and clipped to the study area outline. Next, the point and polygon data were organized to create one homogeneous layer with common destination points. The centroids of the polygon data were calculated to be appended to the point data. For polygons that comprehended large areas (nature reserves and parks), a spatial join with the hexagonal grid was performed to assign a destination to each cell centroid that intersects these polygons.
 
-Finally, the segment data were built upon attributes like maximum speed, number of lanes, road type, taken from OSM tags. To assure that the official cycleways in the CML data were comprised within the OSM segments, an intersection between them was performed. An additional variable concerning the mean slope was added for this analysis, given the challenging conditions of the study area. It was calculated for each segment from the Digital Terrain Model raster (49 m resolution), obtained from the \href{http://dados.cm-lisboa.pt}{Open Data Portal}. 
+Finally, the segment data were built upon attributes like maximum speed, number of lanes, road type, taken from OSM tags. To assure that the official cycle ways in the CML data were comprised within the OSM segments, an intersection between them was performed. An additional variable concerning the mean slope was added for this analysis, given the challenging conditions of the study area. It was calculated for each segment from the Digital Terrain Model raster (49 m resolution), obtained from the \href{http://dados.cm-lisboa.pt}{Open Data Portal}. 
 
 \subsection{Biking Network Stress Levels classification} \label{classification}
 
@@ -285,7 +291,11 @@ Each cell on the hexagonal grid was evaluated according to its capacity to reach
 
 The scores for each type of destination, following the scoring process described in Table \ref{table2}, are then categorized into three distinct groups: Opportunity for those destinations related to education, Core Services for health, consumer goods, and social services, and Recreation including parks and nature reserves. Within each of these categories, the scores for the different types of destinations are given a weight (Table \ref{table3}) that will allow the calculation of a weighted average per category. Finally, these averaged scores are once again aggregated given the weights assigned to the categories, and the BNA score per cell is obtained. To calculate the overall score for the whole study area, a final weighted average is performed. This average consists on the addition of all the cells within the grid, weighted by the fraction of the population they would comprehend, assuming that the population is equally distributed along each parish.
 
-The complete scoring process can best be summarized using a short example. Assume in a radius of 6 km around a cell there are 5 parks and 2 nature reserves. With the low stress network, one can reach 4 of these          parks and 1 nature reserve. Both parks and nature reserves have scoring process A, so for the first park and the nature reserve, the cell will get 30 points. The fact that a second and third park can be reached, will account for two times 20 points more. Hence, for three reachable parks the cell has now got 70 points. There are two more parks in the radius, of which one can be reached. That is, of the remaining 30 points (100-70), the cell will get half, i.e. 15 points. The 85 points for the four reachable parks and the 30 points for the nature reserve both count for 50\% in the Recreation category, so the cell will have a score of 85*0.5+30*0.5=57.5. This score counts for 20\% in the computation for the final BNA score of the cell. How much weight is assigned to this particular final score when the overall is computed for the whole city, depends on the fraction of the total population of Lisbon assigned to the cell.
+The complete scoring process can best be summarized using a short example. Assume in a radius of 6 km around a cell there are 5 parks and 2 nature reserves. With the low stress network, one can reach 4 of these parks and 1 nature reserve. Both parks and nature reserves have scoring process A, so for the first park and the nature reserve, the cell will get 30 points. The fact that a second and third park can be reached, will account for two times 20 points more. Hence, for three reachable parks the cell has now got 70 points. There are two more parks in the radius, of which one can be reached. That is, of the remaining 30 points (100-70), the cell will get half, i.e. 15 points. The 85 points for the four reachable parks and the 30 points for the nature reserve both count for 50\% in the Recreation category, so the cell will have a score of:
+\begin{equation}
+85*0.5+30*0.5=57.5
+\end{equation} 
+This score counts for 20\% in the computation for the final BNA score of the cell. How much weight is assigned to this particular final score when the overall is computed for the whole city, depends on the fraction of the total population of Lisbon assigned to the cell.
 
 \begin{table}[ht]
 	\begin{center}
@@ -321,7 +331,7 @@ The complete scoring process can best be summarized using a short example. Assum
 
 \subsection{Low-stress biking network} \label{low_stress}
 
-A low-stress set of segments was identified from the bike network classification, as can be observed in \textit{cyan} color in Figure \ref{fig3}. The resulting low-stress network is very limited according to the classification criteria. Only 9\% out of the 42 294 analyzed segments are classified as low-stress. These are comprised in their majority by the existing biking facilities, with only few additions of some roads considered suitable for commuting cycling.
+A low-stress set of segments was identified from the bike network classification, as can be observed in \textit{cyan} color in Figure \ref{fig3}. The resulting low-stress network is very limited according to the classification criteria. Only 9\% out of the \colorbox{yellow}{\sout{42 294} 42,294} analyzed segments are classified as low-stress. These are comprised in their majority by the existing biking facilities, with only few additions of some roads considered suitable for commuting cycling.
 
 \begin{figure}[ht]
 	\begin{center}
@@ -335,7 +345,7 @@ Even if the results are tightly linked to the quality of the OSM data, certain f
 
 Another decisive variable, especially within Lisbon’s context, is the slope. Twenty five percent of the segments have a slope higher than 9\% in the analyzed network, with a mean slope of 6.6\% and a maximum reaching 49\% It is known in commuting cycling that given the decision between a steep and shorter route, and a flat and longer one, a person would choose the second option \cite{Broach2012}, as \say{the slope increases the amount of effort that cyclists need to make} \cite[p.67]{Heinen2010}. 
 
-Studies \cite{Broach2012,Heinen2010,Vandenbulcke2011,Jestico2016} do not talk about a threshold for the maximum percentage that an average commuter-cyclist would consider as too physically demanding. Therefore, the 10\% chosen for this study was based on the authors' experience, considering that even this slope could be challenging for some people but that a lower threshold would imply an even more limited network. It should be noted in this context that the influence of slope on cyclists' stress level could become of far less importance, as the share of electric bikes is rising sharply in Northern Europe, opening up sustainable mobility to new markets that did not exist before \cite{Pucher2017CyclingFuture}. As of 2017, Lisbon has a public bike sharing program consisting mainly of electric bikes. Eventually, this system should be expanded to 1410 bikes, of which two-third will be electrical \cite{EuropeanCommission2016Indicator2016}. Such initiatives, in combination with e-bike friendly infrastructure, lower the barrier of slope and could potentially increase the extent of the low-stress network.
+Studies \cite{Broach2012,Heinen2010,Vandenbulcke2011,Jestico2016a} do not talk about a threshold for the maximum percentage that an average commuter-cyclist would consider as too physically demanding. Therefore, the 10\% chosen for this study was based on the authors' experience, considering that even this slope could be challenging for some people but that a lower threshold would imply an even more limited network. It should be noted in this context that the influence of slope on cyclists' stress level could become of far less importance, as the share of electric bikes is rising sharply in Northern Europe, opening up sustainable mobility to new markets that did not exist before \cite{Pucher2017CyclingFuture}. As of 2017, Lisbon has a public bike sharing program consisting mainly of electric bikes. Eventually, this system should be expanded to 1410 bikes, of which two-third will be electrical \cite{EuropeanCommission2016}. Such initiatives, in combination with e-bike friendly infrastructure, lower the barrier of slope and could potentially increase the extent of the low-stress network.
 
 Intersections were not evaluated as part of the network. The main reason to omit them was the lack of sufficient information incoming from the OSM data for all the nodes generated during the topology creation. Further work requires complementary open data and further assumptions regarding the road network to successfully include the information for intersections, given their importance when evaluating the status of a biking network, especially a high-traffic one, as the presence of stop signs and traffic signals increase perceived safety \cite{Broach2012}. PeopleForBikes approach do take them into consideration, therefore, their strategy will be closely followed to integrate the intersections within the network analysis to be performed in future analyses. 
 
@@ -375,7 +385,9 @@ A validation procedure is also within the future research scope, in a way that t
 \vspace{6pt} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\funding{This research received no external funding.}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \acknowledgments{This study was developed as part of the Erasmus Mundus Programme, M.Sc. in Geospatial Technologies, from which L.A. has been granted an Erasmus Mundus Category A scholarship funded by the European Commission, Framework No. 2016-2054/001-001-EMJMD. The authors would like to acknowledge the AGILE Council for the shared grant awarded to both of them to attend the AGILE 2018 conference and the pre-conference workshop "OPEN DATA FOR OPEN CITIES V 2.0", where the research was first presented. Furthermore, the authors would like to thank Joel Silva, from 
 NOVA Information Management School, for his guidance during the early stages of this study, and Rebecca Harris from PeopleForBikes for her feedback and input on the future research scope.}
 
@@ -407,4 +419,3 @@ DTM: Digital Terrain Model}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
-
