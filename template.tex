@@ -1,11 +1,11 @@
-%  LaTeX support: latex@mdpi.com 
+%  LaTeX support: latex@mdpi.com
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
 % You need to save the "mdpi.cls" and "mdpi.bst" files into the same folder as this template file.
 
 %==============
 
-\documentclass[information,article,submit,moreauthors,Latex,dvi2pdf,10pt,a4paper]{Definitions/mdpi} 
+\documentclass[information,article,submit,moreauthors,Latex,dvi2pdf,10pt,a4paper]{Definitions/mdpi}
 
 %--------------------
 % Class Options:
@@ -17,7 +17,7 @@
 %---------
 % article
 %---------
-% The default type of manuscript is article, but can be replaced by: 
+% The default type of manuscript is article, but can be replaced by:
 % addendum, article, book, bookreview, briefreport, casereport, changes, comment, commentary, communication, conceptpaper, correction, conferencereport, expressionofconcern, meetingreport, creative, datadescriptor, discussion, editorial, essay, erratum, hypothesis, interestingimage, letter, newbookreceived, opinion, obituary, projectreport, reply, retraction, review, sciprints, shortnote, supfile, technicalnote
 % supfile = supplementary materials
 %----------
@@ -34,9 +34,9 @@
 % The option pdftex is for use with pdfLaTeX. If eps figure are used, remove the option pdftex and use LaTeX and dvi2pdf.
 
 %=================================================================
-\firstpage{1} 
-\makeatletter 
-\setcounter{page}{\@firstpage} 
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
 \makeatother
 \pubvolume{xx}
 \issuenum{1}
@@ -90,8 +90,8 @@
 % Simple summary
 %\simplesumm{}
 
-% Abstract (Do not use inserted blank lines, i.e. \\) 
-\abstract{Stimulating non-motorized transport has been a key point on sustainable mobility agendas for cities around the world. Lisbon is not the exception, as it is investing in the implementation of new bike infrastructure. Quantifying the connectivity of such a bicycle network can help evaluate its current state and point out specific challenges that should be faced. Therefore, the aim of this study is to develop an exploratory score that allows a quantification of the bicycle network connectivity in Lisbon based on open data. For each part of the city, a score was computed based on how many common destinations (e.g. schools, universities, supermarkets, hospitals) could be reached within an acceptable biking distance, by using only bicycle lanes and roads with low traffic stress for cyclists. Taking a weighted average of these scores resulted in an overall score for the city of Lisbon of only 8.6 out of 100 points. This shows, at a first glance, that the city has still a long way to go before achieving their objectives regarding bicycle use in the city.}
+% Abstract (Do not use inserted blank lines, i.e. \\)
+\abstract{Stimulating non-motorized transport has been a key point on sustainable mobility agendas for cities around the world. Lisbon is no exception, as it invests in the implementation of new bike infrastructure. Quantifying the connectivity of such a bicycle network can help evaluate its current state and highlight specific challenges that should be addressed. Therefore, the aim of this study is to develop an exploratory score that allows a quantification of the bicycle network connectivity in Lisbon based on open data. For each part of the city, a score was computed based on how many common destinations (e.g. schools, universities, supermarkets, hospitals) were located within an acceptable biking distance when using only bicycle lanes and roads with low traffic stress for cyclists. Taking a weighted average of these scores resulted in an overall score for the city of Lisbon of only 8.6 out of 100 points. This shows, at a glance, that the city has still a long way to go before achieving their objectives regarding bicycle use in the city.}
 
 
 % Keywords
@@ -116,36 +116,36 @@
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Sections that are not mandatory are listed as such. The section titles given are for Articles. Review papers and other article types have a more flexible structure. 
+%% Sections that are not mandatory are listed as such. The section titles given are for Articles. Review papers and other article types have a more flexible structure.
 
 %% Only for the journal Gels: Please place the Experimental Section after the Conclusions
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Stimulating non-motorized transport has been one of the many strategies adopted by cities to tackle climate change \cite{Banister2011} and boost their inhabitants' living conditions. 
+Stimulating non-motorized transport has been one of the many strategies adopted by cities to tackle climate change \cite{Banister2011} and boost their inhabitants' living conditions.
 \begin{mycolorbox}[colback=cyan]
-Introducing sustainable mobility into an urban planning agenda has beneficial effects on public health, as it decreases air pollution and stimulates physical activity \cite{Fraser2011,DeHartog2010,Torres2018,Carley2017,Bopp2018}. \sout{It is not only a way to improve our environment, by decreasing air pollution and energy consumption \cite{Fraser2011}; but also to ameliorate citizens' health \cite{DeHartog2010},} 
+Introducing sustainable mobility into an urban planning agenda has beneficial effects on public health, as it decreases air pollution and stimulates physical activity \cite{Fraser2011,DeHartog2010,Torres2018,Carley2017,Bopp2018}. \sout{It is not only a way to improve our environment, by decreasing air pollution and energy consumption \cite{Fraser2011}; but also to ameliorate citizens' health \cite{DeHartog2010},}
 \end{mycolorbox}
-\colorbox{cyan}{Additionally, it has proven to} reduce traffic jams \cite{Kosha2016} and reactivate public spaces \cite{DeManuelJerez2016}. Therefore, investing in cycling and pedestrian infrastructure becomes a vital axis of transportation policies in metropolitan areas.
+\colorbox{cyan}{Additionally, it has proven to} reduce traffic jams \cite{Kosha2016} and reactivate public spaces \cite{DeManuelJerez2016}. Therefore, investing in cycling and pedestrian infrastructure is a critical part of transportation policies in metropolitan areas.
 
-The city of Lisbon has undertaken this investment, by implementing new cycle ways and \colorbox{cyan}{public} bike-sharing stations, \colorbox{cyan}{i.e. \textit{\href{https://www.gira-bicicletasdelisboa.pt/}{Gira Bicicletas}}}. The municipality hopes to turn the bicycle into a mean of transport that, along with public transportation, will enable save and efficient short distance journeys up to six kilometers, \colorbox{cyan}{as an alternative to private transport \cite{CamaraMunicipaldeLisboa,Marrana2018}}. This is happening in a city where 89\% of commuters use a private vehicle \cite{CamaraMunicipaldeLisboa2016}, with a car occupancy of 1.2 passengers per vehicle \cite{Silva2017}. The municipality originally presented a plan in which 200 km of cycle ways (Fig. \ref{fig1}) would be implemented into the cities infrastructure by 2018 \cite{Susete2016}. However, for early 2018, only 80 km of them had been built. Finalization of the complete network is now planned for 2020 \cite{Andre2018}.
+The city of Lisbon has undertaken this investment by establishing new cycle ways and \colorbox{cyan}{public} bike-sharing stations, \colorbox{cyan}{i.e. \textit{\href{https://www.gira-bicicletasdelisboa.pt/}{Gira Bicicletas}}}. The municipality hopes to turn the bicycle into a means of transport that, along with public transportation, will enable inhabitants to make safe and efficient short distance journeys, up to six kilometers, \colorbox{cyan}{without the use of private transport \lucas[aren't bicycles private transport?] \cite{CamaraMunicipaldeLisboa,Marrana2018}}. This is happening in a city where 89\% of commuters use a private vehicle \cite{CamaraMunicipaldeLisboa2016}, with a car occupancy of 1.2 passengers per vehicle \cite{Silva2017}. The municipality originally presented a plan which would introduce 200 km of \lucas[new?] cycle ways (Fig. \ref{fig1}) into the city's infrastructure by 2018 \cite{Susete2016}. However, by early 2018, only 80 km of the proposed routes had actually been built. The planned completion date has been pushed back to 2020 \cite{Andre2018}.
 
 \begin{figure}[ht]
 	\begin{center}
 		\includegraphics[height=8.5cm]{fig1}
-		\caption{Existent (green) and proposed (dashed yellow) biking infrastructure for Lisbon Council.} Available in \protect\href{https://lisboa.city-platform.com/app/?a=redeciclavel}{City as a Platform}.
+		\caption{Existing (green) and proposed (dashed yellow) biking infrastructure according to the Lisbon City Council.} Source: \protect\href{https://lisboa.city-platform.com/app/?a=redeciclavel}{City as a Platform}.
 		\label{fig1}
 	\end{center}
 \end{figure}
 
-In the meantime, Lisbon's cyclists increase in number \cite{Baratto2016}, which emphasizes the need to invest in well-connected and safe infrastructure, not only for a continuous commuting trip, but also for reaching common destinations (e.g. schools, universities, supermarkets, hospitals). Quantifying its connectivity can help evaluate the current state of the bicycle network and point out specific challenges that should be faced. Using data sources open to the common public should be promoted for such inquiries, given their ease of access, constant updates, reproducibility, and knowledge sharing boost \cite{opendatahandbook,EuropeanDataPortal2018}. Therefore, the aim of this study is to develop an exploratory score that allows a quantification of the bicycle network connectivity in Lisbon based on open data, as a first attempt to apply such an index into a European city with a developing biking infrastructure.u
+In the meantime, Lisbon's cyclists have increased in number \cite{Baratto2016}, which intensifies the need to invest in well-connected and safe infrastructure, not only for regular commuter trips, but also for trips to common destinations (e.g. schools, universities, supermarkets, hospitals). Quantifying the bicycle network's connectivity can help city officials to evaluate its current state and identify specific challenges that should be addressed. The use of publicly available data sources should be favored for such inquiries, given their ease of access, constant updates, reproducibility, and knowledge sharing boost\lucas[?] \cite{opendatahandbook,EuropeanDataPortal2018}. Therefore, the aim of this study is to develop an exploratory score that allows a quantification of the bicycle network connectivity in Lisbon based on open data, as a first attempt to apply such an index to a European city with a developing biking infrastructure.
 
-The remainder of this paper will be structured as follows: 
+The remainder of this paper will be structured as follows:
 \begin{mycolorbox}[colback=yellow]
-Section \ref{background} overviews the related work and the state of the art regarding bicycle network connectivity, whereas section \ref{pfb} refers to a specific approach on which the current study is based.
+Section \ref{background} provides an overview of related work and the state of the art regarding bicycle network connectivity \lucas[sounds funny]. Section \ref{pfb} describes the specific approach on which this study is based.
 \end{mycolorbox}
-Section \ref{methods} details the adapted methodology applied to address the particular case of Lisbon study area. Section \ref{results} presents the main results, discusses them within the city context, and compares them to other cities' examples. Section \ref{conclusion} concludes the report and recapitulates its limitations and finally, section \ref{future} gives directions for future research and development.
+Section \ref{methods} details the adapted methodology applied to address the particular case of the Lisbon study area. Section \ref{results} presents the main results, discusses them within the context of Lisbon, and compares them to other cities' examples. Section \ref{conclusion} concludes the report and summarizes its limitations and finally, section \ref{future} suggests directions for future research and development.
 
 \section{Background} \label{background}
 
@@ -158,23 +158,23 @@ Connectivity analyses and measures have been developed and applied to understand
 A recurrent approach within the literature is
 
 \begin{mycolorbox}[colback=yellow]
-\sout{the level of traffic stress (LTS). Mekuria, Furth \& Nixon proposed a scheme to classify the road segments in four LTS, ranging from LTS 1, – the level suitable for children - to 4 – the level tolerated by the strong and fearless cyclists.} 
-The quantification of the amount of traffic stress that cyclists perceive \cite{Sorton1994,Geller2006}. Mekuria, Furth \& Nixon \cite{Mekuria2012b} proposed a scheme to classify road segments into four levels of traffic stress (LTS), ranging from LTS 1, the level suitable for children; to LTS 4, the level tolerated by the “strong and fearless” cyclists \cite{Dill2016}. Their approach includes \sout{an analysis of the network connectivity with a thorough review of every segment and crossing, allowing an integral characterization of the bike network and assigning each section a stress level.} a case study in San Diego, California, in which every street and crossing was classified by LTS. In later work, Furth, Mekuria \& Nixon \cite{Furth2016} developed a measure for the connectivity of low stress cycling networks, using origin-destination data of home-to-work trips. Applying their methodology once again in San Diego, California, they concluded that the road network is divided into islands of low-stress segments, with no connection between each other. Investments in new bicycle infrastructure between such islands could drastically improve the connectivity of the low-stress network.
+\sout{the level of traffic stress (LTS). Mekuria, Furth \& Nixon proposed a scheme to classify the road segments in four LTS, ranging from LTS 1, – the level suitable for children - to 4 – the level tolerated by the strong and fearless cyclists.}
+the quantification of cyclists' percieved traffic stress \cite{Sorton1994,Geller2006}. Mekuria, Furth \& Nixon \cite{Mekuria2012b} proposed a scheme to classify road segments into four levels of traffic stress (LTS), ranging from LTS 1, the level suitable for children; to LTS 4, the level tolerated by “strong and fearless” cyclists \cite{Dill2016}. Their approach was tested via \sout{an analysis of the network connectivity with a thorough review of every segment and crossing, allowing an integral characterization of the bike network and assigning each section a stress level.} a case study in San Diego, California, in which every street and crossing was classified by LTS. In later work, Furth, Mekuria \& Nixon \cite{Furth2016} developed a measure for the connectivity of low stress cycling networks, using origin-destination data from home-to-work trips. Applying their methodology once again in San Diego, California, they concluded that the road network is divided into disconnected islands of low-stress segments. Investments in new bicycle infrastructure between such islands could drastically improve the connectivity of low-stress networks.
 
-Building on the findings of \cite{Mekuria2012b}, Lowry et al. \cite{Lowry2016} created a tool for transportation planners to rank more than 750 bicycle improvement projects from the Seattle, Washington’s Bicycle Master Plan, based on their ability to connect homes and important destinations by a low-stress network. The same master plan was evaluated in \cite{Lowry2017}, by comparing the bicycle network connectivity for different types of cyclists and different neighborhoods in Seattle, at both the existing and proposed situation. The results showed that the measured connectivity differs between neighborhoods and types of cyclists, and emphasized the importance of policies and programs that increase the confidence of cyclists. Both \cite{Lowry2016} and \cite{Lowry2017} focused solely on utilitarian travel, and did not distinct between the level of importance of the accessible destinations. 
+Building on the findings of \cite{Mekuria2012b}, Lowry et al. \cite{Lowry2016} created a tool for transportation planners to rank more than 750 bicycle improvement projects from the Seattle, Washington’s Bicycle Master Plan, based on their potential to connect homes and important destinations over a low-stress network. The same master plan was evaluated in \cite{Lowry2017}, by comparing the bicycle network connectivity for different types of cyclists and different neighborhoods in Seattle, in both the existing and proposed situation. The results showed that connectivity differs between neighborhoods and types of cyclists, and emphasized the importance of policies and programs that increase the confidence of cyclists. Both \cite{Lowry2016} and \cite{Lowry2017} focused solely on utilitarian travel, and did not distinguish between destinations of varying importance.
 
-Boettge et al. \cite{Boettge2017} validated the LTS concept in a qualitative way, gathering information from individual cyclists by surveys. Their findings in St. Louis, Missouri, confirmed a positive correlation between cyclists levels of stress on roads and speed limit, number of lanes and functional classes. A relationship between specific bicycle facilities and LTS was not found. 
+Boettge et al. \cite{Boettge2017} validated the LTS concept in a qualitative way, gathering information from individual cyclists using surveys. Their findings in St. Louis, Missouri, confirmed a positive correlation between cyclists' levels of stress on a road and the speed limit, number of lanes and functional class of the road. No relationship was found between specific bicycle facilities and LTS.
 \end{mycolorbox}
 
 \section{PeopleForBikes \textquotedblleft Bike Network Analysis score\textquotedblright approach} \label{pfb}
 
 \begin{mycolorbox}[colback=yellow]
-Yet another example of the use of LTS to quantify bicycle network connectivity comes from he \href{https://peopleforbikes.org/}{PeopleForBikes} (PfB) organization. They developed a scoring system, named \textit{Bike Network Analysis score} (BNA score), based on slightly modified LTS, as from the methodology described by \cite{Mekuria2012b}. 
+Yet another example of the use of LTS to quantify bicycle network connectivity comes from he \href{https://peopleforbikes.org/}{PeopleForBikes} (PfB) organization. They developed a scoring system, named \textit{Bike Network Analysis score} (BNA score), based on slightly modified LTS, as from the methodology described by \cite{Mekuria2012b}.
 \end{mycolorbox}
 \begin{mycolorbox}[colback=cyan]
 The modifications basically refer to additional bicycle facility types that were not considered on the initial LTS approach. Besides this, the approach is the same, classifying the four original LTS levels into Low Stress (LTS 1 and LTS 2) and High Stress (LTS 3 and LTS 4).
 \end{mycolorbox}
-The BNA score determines how people in a city can get to common destinations on a comfortable and connected bike network. 
+The BNA score determines how people in a city can get to common destinations on a comfortable and connected bike network.
 \begin{mycolorbox}[colback=yellow]
 The destinations are picked in a similar way as Lowry et al. define their so called \textit{basket of destination types}, as \say{it is possible that some bicyclists would not need certain destinations in the basket, and it is also possible that different bicyclists would have unique preferences for particular destination types, e.g. preference for a particular restaurant. Nevertheless, (\ldots) the concept of a basket provides a means to calculate a meaningful metric with objectivity} \cite[p.130]{Lowry2016}.
 \end{mycolorbox}
@@ -190,22 +190,22 @@ Therefore, this paper will be guided on the  PeopleForBikes’ \href{https://git
 
 \subsection{Data acquisition and pre-processing} \label{data}
 
-The computation of the BNA score for Lisbon in this paper is based solely on open data. The main sources used were OpenStreetMap (OSM), Lisbon Municipal Council's Spatial Open Data and Open Data Portal, and the National Statistics Institute. 
+The computation of the BNA score for Lisbon in this paper is based solely on open data. The main sources used were OpenStreetMap (OSM), Lisbon Municipal Council's Spatial Open Data and Open Data Portal, and the National Statistics Institute.
 
 The OSM data was downloaded in February 2018 through the built-in QGIS tool and uploaded into a PostgreSQL database using two formats: the \textit{osm2pgrouting} bicycle map
-configuration .XML file to generate edges/segments and nodes/intersections tables, and the \textit{osm2pgsql} adjusted to the .STYLE file from PeopleForBikes to generate points, lines, and polygon base data. 
+configuration .XML file to generate edges/segments and nodes/intersections tables, and the \textit{osm2pgsql} adjusted to the .STYLE file from PeopleForBikes to generate points, lines, and polygon base data.
 
-The \href{http://geodados.cm-lisboa.pt/}{CML data} consisted of the Lisbon's Council outline, the Parishes corresponding to the Council, and the currently existing cycleways. The Parishes data were combined with their corresponding population obtained from the \href{http://censos.ine.pt/}{2011 Census}. 
+The \href{http://geodados.cm-lisboa.pt/}{CML data} consisted of the Lisbon's Council outline, the Parishes corresponding to the Council, and the currently existing cycleways. The Parishes data were combined with their corresponding population obtained from the \href{http://censos.ine.pt/}{2011 Census}.
 
-The PeopleForBikes methodology includes census blocks as units of analysis. 
+The PeopleForBikes methodology includes census blocks as units of analysis.
 \begin{mycolorbox}[colback=yellow]
 \sout{As this information was not available for the study area, a hexagonal grid overlying Lisbon Council was generated to perform the network analysis on a smaller scale, allowing a local evaluation of the resulting stress network.} However, information at this administrative level was not available for the study area. Therefore, a hexagonal grid was laid over the Lisbon Council to perform the analysis at a higher spatial resolution, and evaluate the results locally. A hexagonal shape was selected over a rectangular grid as it reduces the bias of the edge-effect generating a more symmetrical neighborhood and thus being more convenient for connectivity analyses \cite{Birch2007}.
-\end{mycolorbox} 
+\end{mycolorbox}
 Each hexagon in the grid had a x-spacing of 200 m. This value was arbitrarily chosen, but based on the underlying idea that all destinations in a single cell should be on a reasonable walking distance from each other. The population fraction corresponding to each cell was calculated from the parishes population, by simply dividing the total population of a parish by the number of grid cells that belong predominantly to that parish.
 
 For the pre-processing, all the data were projected to ETRS89 / Portugal TM06 and clipped to the study area outline. Next, the point and polygon data were organized to create one homogeneous layer with common destination points. The centroids of the polygon data were calculated to be appended to the point data. For polygons that comprehended large areas (nature reserves and parks), a spatial join with the hexagonal grid was performed to assign a destination to each cell centroid that intersects these polygons.
 
-Finally, the segment data were built upon attributes like maximum speed, number of lanes, road type, taken from OSM tags. To assure that the official cycleways in the CML data were comprised within the OSM segments, an intersection between them was performed. An additional variable concerning the mean slope was added for this analysis, given the challenging conditions of the study area. It was calculated for each segment from the Digital Terrain Model raster (49 m resolution), obtained from the \href{http://dados.cm-lisboa.pt}{Open Data Portal}. 
+Finally, the segment data were built upon attributes like maximum speed, number of lanes, road type, taken from OSM tags. To assure that the official cycleways in the CML data were comprised within the OSM segments, an intersection between them was performed. An additional variable concerning the mean slope was added for this analysis, given the challenging conditions of the study area. It was calculated for each segment from the Digital Terrain Model raster (49 m resolution), obtained from the \href{http://dados.cm-lisboa.pt}{Open Data Portal}.
 
 \subsection{Biking Network Stress Levels classification} \label{classification}
 
@@ -217,15 +217,15 @@ The segment data were categorized into two possible classes: low and high stress
 		\centering
 		\caption{Classification criteria for stress level segment labeling.}
 		\label{table1}
-		
+
 \begin{tabular}{m{3.2cm} >{\centering}m{2cm} >{\centering}m{2cm} >{\centering}m{2cm} >{\centering}m{1.3cm} >{\centering}m{1.cm} >{\centering}m{1.7cm} @{}m{0pt}@{}}
 			\hline
-			\centering Type of segment & 
-			\centering Maximum speed & 
-			\centering Residential area & 
-			\centering Number of lanes & 
-			\centering Slope & 
-			\centering Bicycle tag & 
+			\centering Type of segment &
+			\centering Maximum speed &
+			\centering Residential area &
+			\centering Number of lanes &
+			\centering Slope &
+			\centering Bicycle tag &
 			\centering Stress Level \tabularnewline
 			\hline \tabularnewline [-5pt]
 			\raggedright Municipality designated cycleway & -------- & -------- & -------- & -------- & -------- & Low &  \tabularnewline [15pt]
@@ -234,8 +234,8 @@ The segment data were categorized into two possible classes: low and high stress
 			\hdashline \tabularnewline [-5pt]
 			\multirow{3}{3cm}{Shared lanes} & $\mathbf{\leq}$35 km/h & Yes & -------- & -------- & -------- & Low & \tabularnewline[15pt]
 			& $\mathbf{\leq}$35 km/h & No & 1 & $\mathbf{<}$10\% & -------- & Low & \tabularnewline [15pt]
-			& $\mathbf{>}$35 km/h & No & -------- & -------- & -------- & High & \tabularnewline [15pt]	
-			\hdashline \tabularnewline [-5pt]	
+			& $\mathbf{>}$35 km/h & No & -------- & -------- & -------- & High & \tabularnewline [15pt]
+			\hdashline \tabularnewline [-5pt]
 			\multirow{4}{3cm}{Motorized road network (road, primary, secondary and tertiary segments and links)} & $\mathbf{\geq}$50 km/h & No & $\mathbf{>}$1 & -------- & -------- & High & \tabularnewline [10pt]
 			& \pbox{3cm}{$\mathbf{\geq}$50 km/h \\ $\mathbf{<}$60 km/h} & No & 1 & $\mathbf{<}$10\% & -------- & Low & \tabularnewline [20pt]
 			& \pbox{3cm}{$\mathbf{\geq}$50 km/h \\ $\mathbf{<}$60 km/h} & No & 1 & $\mathbf{>}$10\% & -------- & High & \tabularnewline [20pt]
@@ -245,16 +245,16 @@ The segment data were categorized into two possible classes: low and high stress
 			& $\mathbf{\leq}$40 km/h & -------- & -------- &  $\mathbf{<}$10\% & -------- & Low & \tabularnewline [20pt]
 			\hdashline \tabularnewline [-5pt]
 			\raggedright Pedestrian segments and foot ways & -------- & -------- & -------- & -------- & -------- & High & \tabularnewline [10pt]
-			\hdashline \tabularnewline [-5pt]	
+			\hdashline \tabularnewline [-5pt]
 			\raggedright Roundabouts segments without bike path & -------- & -------- & -------- & -------- & -------- & High & \tabularnewline [10pt]
-			\hdashline \tabularnewline [-5pt]	
+			\hdashline \tabularnewline [-5pt]
 			\multirow{2}{3cm}{Service lanes (public transport)} & $\mathbf{\leq}$30 km/h & -------- & -------- & $\mathbf{<}$10\% & -------- & Low & \tabularnewline [10pt]
 			& $\mathbf{>}$30 km/h & -------- & -------- &  -------- & -------- & High & \tabularnewline [10pt]
-			\hdashline \tabularnewline [-5pt]	
+			\hdashline \tabularnewline [-5pt]
 			Paths & -------- & -------- & -------- & -------- & -------- & Low & \tabularnewline [10pt]
-			\hdashline \tabularnewline [-5pt]	
+			\hdashline \tabularnewline [-5pt]
 			Tracks & -------- & -------- & -------- & -------- & -------- & High & \tabularnewline [10pt]
-			\hdashline \tabularnewline [-5pt]	
+			\hdashline \tabularnewline [-5pt]
 			\multirow{3}{3cm}{Remaining unclassified segments} & -------- & -------- & -------- & $\mathbf{>}$10\% & -------- & High & \tabularnewline [15pt]
 			& -------- & -------- & -------- & -------- & \pbox{4cm}{Yes \\ Designated \\ Destination} & Low & \tabularnewline[30pt]
 			& -------- & -------- & -------- & -------- & \pbox{4cm}{No \\ Dismount} & High & \tabularnewline [20pt]
@@ -291,25 +291,25 @@ Each cell on the hexagonal grid was evaluated according to its capacity to reach
 		\centering
 		\caption{Methodology for scoring destinations.}
 		\label{table2}
-			
+
 		\begin{tabular}{m{1.2cm} m{6.7cm} b{6.5cm}}
 		\hline
-		\centering Scoring process & 
-		\centering Criteria & 
-		\centering General methodology \tabularnewline 
+		\centering Scoring process &
+		\centering Criteria &
+		\centering General methodology \tabularnewline
 		\hline \\ [-5pt]
-		\centering A & 
+		\centering A &
 		\centering \pbox{6.7cm}{First low stress destination = 30 points \\ Second low stress destination = 20 points \\ Third low stress destination = 20 points} &
 		\centering \multirow{3}{6.5cm}{\pbox{6.5cm}{The maximum amount of points is 100.\\ The points are given in a cumulative form, considering the number of destinations that the low stress network allows to reach within a biking distance of 6 km. \\ If all the destinations can be reached, then 100 points are granted. \\ If more destinations can be reached than defined in the criteria on the left, extra points are given based on a ratio: \\ No. of extra destinations that can be reached by the low stress network / total number of extra destinations within a distance of 6 km,represented by a circular buffer around the concerned node.}}
 		\tabularnewline[35pt]
-		\centering B & 
+		\centering B &
 		\centering \pbox{6.7cm}{First low stress destination = 40 points \\ Second low stress destination = 20 points \\ Third low stress destination = 10 points} &
 		\tabularnewline[30pt]
-		\centering C & 
+		\centering C &
 		\centering First low stress destination = 70 points   &\tabularnewline[30pt]
-		\centering D & 
+		\centering D &
 		\centering \pbox{6.7cm}{First low stress destination = 60 points \\ Second low stress destination = 20 points} &\tabularnewline [10pt]
-		\hline 
+		\hline
 	\end{tabular}
 \end{center}
 \end{table}
@@ -366,19 +366,19 @@ A low-stress set of segments was identified from the bike network classification
 	\end{center}
 \end{figure}
 
-Even if the results are tightly linked to the quality of the OSM data, certain factors might explain the limited low-stress network within the city context. The first one is the maximum speed allowed on the segments, closely attached to the number of lanes and residential areas. At least 75\% of those allow a maximum speed equal or higher than 50 km/h, being 105 km/h the highest maximum speed. Even if these are not the official values that the municipality handles, as they were generated by the \textit{osm2pgrouting} tool, they give an idea of how the actual street network in the city is structured. According to a sociological study on the pedestrian and cycling practices in Portugal \cite[p. 298]{Mantas2015}, \say{the automobiles' excessive speed is referred \colorbox{cyan}{to} [as an obstacle] specially by the (\ldots) people who commute in Lisbon}, hence classified as high-stress. 
+Even if the results are tightly linked to the quality of the OSM data, certain factors might explain the limited low-stress network within the city context. The first one is the maximum speed allowed on the segments, closely attached to the number of lanes and residential areas. At least 75\% of those allow a maximum speed equal or higher than 50 km/h, being 105 km/h the highest maximum speed. Even if these are not the official values that the municipality handles, as they were generated by the \textit{osm2pgrouting} tool, they give an idea of how the actual street network in the city is structured. According to a sociological study on the pedestrian and cycling practices in Portugal \cite[p. 298]{Mantas2015}, \say{the automobiles' excessive speed is referred \colorbox{cyan}{to} [as an obstacle] specially by the (\ldots) people who commute in Lisbon}, hence classified as high-stress.
 
-Another decisive variable, especially within Lisbon’s context, is the slope. Twenty five percent of the segments have a slope higher than 9\% in the analyzed network, with a mean slope of 6.6\% and a maximum reaching 49\% It is known in commuting cycling that given the decision between a steep and shorter route, and a flat and longer one, a person would choose the second option \cite{Broach2012}, as \say{the slope increases the amount of effort that cyclists need to make} \cite[p.67]{Heinen2010}. 
+Another decisive variable, especially within Lisbon’s context, is the slope. Twenty five percent of the segments have a slope higher than 9\% in the analyzed network, with a mean slope of 6.6\% and a maximum reaching 49\% It is known in commuting cycling that given the decision between a steep and shorter route, and a flat and longer one, a person would choose the second option \cite{Broach2012}, as \say{the slope increases the amount of effort that cyclists need to make} \cite[p.67]{Heinen2010}.
 
 Studies \cite{Broach2012,Heinen2010,Vandenbulcke2011,Jestico2016a} do not talk about a threshold for the maximum percentage that an average commuter-cyclist would consider as too physically demanding. Therefore, the 10\% chosen for this study was based on the authors' experience, considering that even this slope could be challenging for some people but that a lower threshold would imply an even more limited network. It should be noted in this context that the influence of slope on cyclists' stress level could become of far less importance, as the share of electric bikes is rising sharply in Northern Europe, opening up sustainable mobility to new markets that did not exist before \cite{Pucher2017}. As of 2017, Lisbon has a public bike sharing program consisting mainly of electric bikes. Eventually, this system should be expanded to 1410 bikes, of which two-third will be electrical \cite{EuropeanCommission2016}. Such initiatives, in combination with e-bike friendly infrastructure, lower the barrier of slope and could potentially increase the extent of the low-stress network.
 
-Intersections were not evaluated as part of the network. The main reason to omit them was the lack of sufficient information incoming from the OSM data for all the nodes generated during the topology creation. Further work requires complementary open data and further assumptions regarding the road network to successfully include the information for intersections, given their importance when evaluating the status of a biking network, especially a high-traffic one, as the presence of stop signs and traffic signals increase perceived safety \cite{Broach2012}. PeopleForBikes approach do take them into consideration, therefore, their strategy will be closely followed to integrate the intersections within the network analysis to be performed in future analyses. 
+Intersections were not evaluated as part of the network. The main reason to omit them was the lack of sufficient information incoming from the OSM data for all the nodes generated during the topology creation. Further work requires complementary open data and further assumptions regarding the road network to successfully include the information for intersections, given their importance when evaluating the status of a biking network, especially a high-traffic one, as the presence of stop signs and traffic signals increase perceived safety \cite{Broach2012}. PeopleForBikes approach do take them into consideration, therefore, their strategy will be closely followed to integrate the intersections within the network analysis to be performed in future analyses.
 
 Behavior of fellow road users forms another factor that could be of influence on the amount of stress that cyclists perceive. Particularly in Lisbon, it is still hard to create a culture where the motorized vehicle drivers acknowledge the right of way of cyclists. The main reason for this behavior is that only in 2013 the road traffic regulations migrated from a motorized-centered perspective to one that includes the cyclists' rights as well \cite{Mantas2015}. Since this change is so recent, it still fails to be embraced by the daily commuters. Besides motorized traffic, also pedestrian behaviors, can turn the already low-stress network into a highly stressful experience. One of the most noticeable example of these behaviors is the usage of cycleways as foot ways. This adds up to the fact that the pedestrians do not appear to have a cycling-city culture, and therefore, become unpredictable when reacting upon the sudden meeting of a cyclist in their way. These limitations raise the question of whether the resulting low-stress network for Lisbon can really be considered as such. However, at the same time these cultural factors are hardly accountable for in a quantitative index based on open data.
 
 \subsection{Lisbon's BNA score} \label{lisbon_bna}
 
-The connectivity of the low-stress network can be quantified by the scoring mechanism, awarding the city of Lisbon with a score of \textbf{8.6 out of 100 possible points}. Each of the grid cells was punctuated in order to obtain this overall score, which can be visualized in Figure \ref{fig5}. At a first glance, the figure shows how the cells with high scores spatially correlate with those areas where the municipality's bike infrastructure is located, however this is not always true. It can be observed how, in fact, the cells correspondent to the central and northwestern axes are highly scored, whereas the cells along the riverside show lower scores even if an acceptable bike infrastructure can be already found there. 
+The connectivity of the low-stress network can be quantified by the scoring mechanism, awarding the city of Lisbon with a score of \textbf{8.6 out of 100 possible points}. Each of the grid cells was punctuated in order to obtain this overall score, which can be visualized in Figure \ref{fig5}. At a first glance, the figure shows how the cells with high scores spatially correlate with those areas where the municipality's bike infrastructure is located, however this is not always true. It can be observed how, in fact, the cells correspondent to the central and northwestern axes are highly scored, whereas the cells along the riverside show lower scores even if an acceptable bike infrastructure can be already found there.
 
 This is mainly because the number of destinations accessible within the analysis are clustering predominately around the central areas and not the riversides \colorbox{yellow}{(Fig. \ref{appA} in the Appendix).}
 
@@ -400,35 +400,35 @@ The resulting score does show an extremely low performance of the bike network, 
 
 This does not necessarily mean that there are cities around the world with a perfect BNA score. For example, Groningen in The Netherlands is one of the world leading cities regarding bike infrastructure, and yet, when the PeopleForBikes organization applied their methodology to compute a BNA score for Groningen, it was awarded 75 points \cite{Boldry2017}. If we look for the highest rated cities in the USA, where the original tool was implemented, we see that some places reach scores as high as 88 (Crested Butte, CO) and 85 (Provincetown, MA)\footnote{Values taken from PeopleForBikes \protect\href{http://bna.peopleforbikes.org/}{BNA score visualizer}.}, but it is important to notice that these are small cities with less than 3 thousand inhabitants.
 
-Comparing the obtained value for Lisbon with what the PeopleForBikes BNA score has done for the US cities is not completely accurate, as the methodology differs. One of the biggest challenges of applying such methodology outside of the USA is that the open data available is not the same as in Europe. As already mentioned, the PeopleForBikes BNA approach includes census blocks information with exact population counts, which was not easily and openly available for the Lisbon case, as far as the authors were aware. Additionally, their approach included \colorbox{cyan}{workplace \sout{employment}} data, which is also an important factor to consider, but not possible to obtain as open data in the European data portal or similar local portals for Lisbon. Nevertheless, to see how other cities score, and analyze the strengths and weaknesses of their biking policies can guide Lisbon on its way to become a more sustainable city. 
+Comparing the obtained value for Lisbon with what the PeopleForBikes BNA score has done for the US cities is not completely accurate, as the methodology differs. One of the biggest challenges of applying such methodology outside of the USA is that the open data available is not the same as in Europe. As already mentioned, the PeopleForBikes BNA approach includes census blocks information with exact population counts, which was not easily and openly available for the Lisbon case, as far as the authors were aware. Additionally, their approach included \colorbox{cyan}{workplace \sout{employment}} data, which is also an important factor to consider, but not possible to obtain as open data in the European data portal or similar local portals for Lisbon. Nevertheless, to see how other cities score, and analyze the strengths and weaknesses of their biking policies can guide Lisbon on its way to become a more sustainable city.
 
 \section{Conclusions and Limitations} \label{conclusion}
 
 \subsection{Conclusions}
-The BNA score of Lisbon is 8.6 out of 100 points. The exploratory tool developed has shown how the use of open data, even with its limitations, can provide a quantification index of sustainable mobility for a city. 
+The BNA score of Lisbon is 8.6 out of 100 points. The exploratory tool developed has shown how the use of open data, even with its limitations, can provide a quantification index of sustainable mobility for a city.
 \begin{mycolorbox}[colback=orange]
 For the Lisbon study case, the score per cell can be used by urban planners to thoroughly analyze the existing biking network, identifying specific areas where low-stress infrastructure should either be introduced or better connected . Additionally, the methodology can be used to evaluate proposals for new cycling infrastructure, and guarantee the introduction of a well-connected low-stress network for bicycle commuters.
 \end{mycolorbox}
 
-The current overall score can be considered an extremely low performance and shows that there is still a long way to go until the bicycle can be considered a fully-fledged mean of transport, able to compete with the car, as the municipality aims for. Of course, making radical changes like this is a slow process and it takes a lot of time for both the inhabitants and policy makers to adapt to them, but, with a clear vision and a strong belief, significant improvements can be expected in the coming years. 
+The current overall score can be considered an extremely low performance and shows that there is still a long way to go until the bicycle can be considered a fully-fledged mean of transport, able to compete with the car, as the municipality aims for. Of course, making radical changes like this is a slow process and it takes a lot of time for both the inhabitants and policy makers to adapt to them, but, with a clear vision and a strong belief, significant improvements can be expected in the coming years.
 
 \subsection{Limitations}
 \begin{mycolorbox}[colback=orange]
-The major limitation of the BNA approach is the level of completeness and accuracy of the OpenStreetMap data for the study area. PfB is constantly encouraging current and potential users of their tool to also contribute in the mapping of their OSM area so that the score becomes more reliable. 
+The major limitation of the BNA approach is the level of completeness and accuracy of the OpenStreetMap data for the study area. PfB is constantly encouraging current and potential users of their tool to also contribute in the mapping of their OSM area so that the score becomes more reliable.
 
-Another issue is the weighted influence that destinations have on the overall score, as different weights can impact highly on the obtained score. It is therefore important to always keep the same criteria for scores calculations when comparisons want to be performed among different study areas. 
+Another issue is the weighted influence that destinations have on the overall score, as different weights can impact highly on the obtained score. It is therefore important to always keep the same criteria for scores calculations when comparisons want to be performed among different study areas.
 
-Finally, as seen on the background section, validation schemes have been proposed for this type of connectivity measures. However, the lack of open data and the labor intensity of qualitative methods, could become a problem for some cities to successfully validate the computed index. Therefore, validation approaches that are automatized, affordable and accessible should be explored to expand this tool to a broader audience. Also, a good validation procedure should include an evaluation of the destination weights to ensure that their value matches the actual importance given to them by commuters. 
+Finally, as seen on the background section, validation schemes have been proposed for this type of connectivity measures. However, the lack of open data and the labor intensity of qualitative methods, could become a problem for some cities to successfully validate the computed index. Therefore, validation approaches that are automatized, affordable and accessible should be explored to expand this tool to a broader audience. Also, a good validation procedure should include an evaluation of the destination weights to ensure that their value matches the actual importance given to them by commuters.
 \end{mycolorbox}
 
 \section{Future research} \label{future}
 
-Future research will focus on analyzing thoroughly the set up of street networks to include segments and intersections altogether, as the PeopleForBikes approach considers, in an effort to translate the score for any city in Europe, considering the data limitations and possible replacements or, even further, modifications to the way the BNA score is calculated, given the available data. 
+Future research will focus on analyzing thoroughly the set up of street networks to include segments and intersections altogether, as the PeopleForBikes approach considers, in an effort to translate the score for any city in Europe, considering the data limitations and possible replacements or, even further, modifications to the way the BNA score is calculated, given the available data.
 
 A validation procedure is also within the future research scope, in a way that the score is not only consider as an exploratory index, but as a trustful tool for urban planners to optimize the current bike network connectivity in cities, by including scenarios of potential low-stress segments locations within the bike network, and observing the enhancement of the BNA score as new bike infrastructure is being planned.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{6pt} 
+\vspace{6pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \funding{This research received no external funding.}
@@ -440,13 +440,13 @@ A validation procedure is also within the future research scope, in a way that t
 \authorcontributions{Conceptualization, Lorena Abad and Lucas van der Meer; Formal analysis, Lorena Abad and Lucas van der Meer; Methodology, Lorena Abad and Lucas van der Meer; Project administration, Lorena Abad; Writing - original draft, Lorena Abad; Writing - review \& editing, Lorena Abad and Lucas van der Meer.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\conflictofinterests{The authors declare no conflict of interest.} 
+\conflictofinterests{The authors declare no conflict of interest.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
-\appendixtitles{no} 
+\appendixtitles{no}
 %Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
-\appendixsections{one} 
+\appendixsections{one}
 %Leave argument "multiple" if there are multiple sections. Then a counter is printed ("Appendix A"). If there is only one appendix section then change the argument to "one" and no counter is printed ("Appendix").
 \appendix
 \section{}
