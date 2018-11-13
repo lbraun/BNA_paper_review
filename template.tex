@@ -169,39 +169,39 @@ Boettge et al. \cite{Boettge2017} validated the LTS concept in a qualitative way
 \section{PeopleForBikes \textquotedblleft Bike Network Analysis score\textquotedblright approach} \label{pfb}
 
 \begin{mycolorbox}[colback=yellow]
-Yet another example of the use of LTS to quantify bicycle network connectivity comes from he \href{https://peopleforbikes.org/}{PeopleForBikes} (PfB) organization. They developed a scoring system, named \textit{Bike Network Analysis score} (BNA score), based on slightly modified LTS, as from the methodology described by \cite{Mekuria2012b}.
+Yet another example of the use of LTS to quantify bicycle network connectivity comes from the organization \href{https://peopleforbikes.org/}{PeopleForBikes} (PfB). They developed a scoring system called the \textit{Bike Network Analysis score} (BNA score). BNA is a slightly modified version of LTS whose methodology is described by \cite{Mekuria2012b}.
 \end{mycolorbox}
 \begin{mycolorbox}[colback=cyan]
-The modifications basically refer to additional bicycle facility types that were not considered on the initial LTS approach. Besides this, the approach is the same, classifying the four original LTS levels into Low Stress (LTS 1 and LTS 2) and High Stress (LTS 3 and LTS 4).
+The modifications add bicycle facility types that were not considered by the initial LTS approach. Besides this, the approach is the same, classifying the four original LTS levels into Low Stress (LTS 1 and LTS 2) and High Stress (LTS 3 and LTS 4).
 \end{mycolorbox}
 The BNA score determines how people in a city can get to common destinations on a comfortable and connected bike network.
 \begin{mycolorbox}[colback=yellow]
-The destinations are picked in a similar way as Lowry et al. define their so called \textit{basket of destination types}, as \say{it is possible that some bicyclists would not need certain destinations in the basket, and it is also possible that different bicyclists would have unique preferences for particular destination types, e.g. preference for a particular restaurant. Nevertheless, (\ldots) the concept of a basket provides a means to calculate a meaningful metric with objectivity} \cite[p.130]{Lowry2016}.
+The way these destinations are picked is similar to how Lowry et al. define their so called \textit{basket of destination types}, following the theory that \say{it is possible that some bicyclists would not need certain destinations in the basket, and it is also possible that different bicyclists would have unique preferences for particular destination types, e.g. preference for a particular restaurant. Nevertheless, (\ldots) the concept of a basket provides a means to calculate a meaningful metric with objectivity} \cite[p.130]{Lowry2016}.
 \end{mycolorbox}
-The score is computed by counting the total number of common destination points accessible within 10 minutes on a low-stress bike network from an origin census block. A scoring scale between 0 and 100 is assigned to each destination type, on a stepped manner. Finally, the scores for all census blocks are aggregated in a weighted averaged fashion, to get to one score for the whole city \cite{PeopleforBikes2014}.
+The score is computed by counting the total number of common destination points accessible within 10 minutes on a low-stress bike network from an origin census block. A scoring scale between 0 and 100 is assigned to each destination type, in a stepped manner\lucas{not sure what that means}. Finally, the scores for all census blocks are aggregated as a weighted averaged to get to one score for the whole city \cite{PeopleforBikes2014}.
 
 \begin{mycolorbox}[colback=yellow]
-\sout{PeopleForBikes targets USA cities and towns, basing their analysis mainly on OpenStreetMap and US Census data.} The particularity of the PfB analysis, targeting USA cities and towns, is that the methodology is based on OpenStreetMap (OSM), a crowd-sourced project to create a free and editable map of the entire world. The use of OSM, complemented with open governmental data coming from the US Census of 2011, makes the tool easier to implement in other areas where street network and point of interests information might not be available to the public.
+\sout{PeopleForBikes targets USA cities and towns, basing their analysis mainly on OpenStreetMap and US Census data.} The PfB analysis is unique because the methodology is based on OpenStreetMap (OSM), a crowd-sourced project to create a free and editable map of the entire world. The use of OSM, although complemented by open governmental data from the 2011 US Census, still makes the tool easier to implement in other areas where street network and points of interest information might not be available to the public.
 \end{mycolorbox}
 
-Therefore, this paper will be guided on the  PeopleForBikes’ \href{https://github.com/azavea/pfb-network-connectivity}{open source} methodology to develop a BNA score for the city of Lisbon.
+Therefore, this paper used the PeopleForBikes \href{https://github.com/azavea/pfb-network-connectivity}{open source} methodology as a guide to develop a BNA score for the city of Lisbon.
 
 \section{Data and methods} \label {methods}
 
-\subsection{Data acquisition and pre-processing} \label{data}
+\subsection{Data acquisition and preprocessing} \label{data}
 
 The computation of the BNA score for Lisbon in this paper is based solely on open data. The main sources used were OpenStreetMap (OSM), Lisbon Municipal Council's Spatial Open Data and Open Data Portal, and the National Statistics Institute.
 
-The OSM data was downloaded in February 2018 through the built-in QGIS tool and uploaded into a PostgreSQL database using two formats: the \textit{osm2pgrouting} bicycle map
-configuration .XML file to generate edges/segments and nodes/intersections tables, and the \textit{osm2pgsql} adjusted to the .STYLE file from PeopleForBikes to generate points, lines, and polygon base data.
+The OSM data was downloaded in February 2018 through the built-in QGIS tool and loaded into a PostgreSQL database in two formats: the \textit{osm2pgrouting} bicycle map
+configuration .XML file to generate edge/segment and node/intersection tables, and the \textit{osm2pgsql} adjusted to the .STYLE file from PeopleForBikes\lucas{<- Not sure what you're trying to say here} to generate points, lines, and polygon base data.
 
-The \href{http://geodados.cm-lisboa.pt/}{CML data} consisted of the Lisbon's Council outline, the Parishes corresponding to the Council, and the currently existing cycleways. The Parishes data were combined with their corresponding population obtained from the \href{http://censos.ine.pt/}{2011 Census}.
+The \href{http://geodados.cm-lisboa.pt/}{CML data} consisted of Lisbon's Council \lucas{I haven't seen this term "Council" used in reference to geographical area. Maybe say Lisbon's city/municipal boundary or Lisbon's metropolitan area instead} outline, the Parishes belonging to the Council, and the existing cycleways. The Parishes data was merged with corresponding population obtained from the \href{http://censos.ine.pt/}{2011 Portuguese Census}.
 
-The PeopleForBikes methodology includes census blocks as units of analysis.
+The PeopleForBikes methodology uses census blocks as the unit of analysis.
 \begin{mycolorbox}[colback=yellow]
-\sout{As this information was not available for the study area, a hexagonal grid overlying Lisbon Council was generated to perform the network analysis on a smaller scale, allowing a local evaluation of the resulting stress network.} However, information at this administrative level was not available for the study area. Therefore, a hexagonal grid was laid over the Lisbon Council to perform the analysis at a higher spatial resolution, and evaluate the results locally. A hexagonal shape was selected over a rectangular grid as it reduces the bias of the edge-effect generating a more symmetrical neighborhood and thus being more convenient for connectivity analyses \cite{Birch2007}.
+\sout{As this information was not available for the study area, a hexagonal grid overlying Lisbon Council was generated to perform the network analysis on a smaller scale, allowing a local evaluation of the resulting stress network.} However, information at this administrative level was not available for the study area. Therefore, a hexagonal grid was laid over the Lisbon Council to perform the analysis at a higher spatial resolution and evaluate the results locally. A hexagonal shape was selected over a rectangular grid as it reduces the bias of the edge-effect generating a more symmetrical neighborhood and is thus more convenient for connectivity analyses \cite{Birch2007}.
 \end{mycolorbox}
-Each hexagon in the grid had a x-spacing of 200 m. This value was arbitrarily chosen, but based on the underlying idea that all destinations in a single cell should be on a reasonable walking distance from each other. The population fraction corresponding to each cell was calculated from the parishes population, by simply dividing the total population of a parish by the number of grid cells that belong predominantly to that parish.
+Each hexagon in the grid had an x-spacing of 200 m. This value was arbitrarily chosen, but based on the underlying idea that all destinations in a single cell should be within a reasonable walking distance of each other. The population of each cell was estimated from the parish population data, by simply dividing the total population of a parish by the number of grid cells that belong predominantly to that parish.
 
 For the pre-processing, all the data were projected to ETRS89 / Portugal TM06 and clipped to the study area outline. Next, the point and polygon data were organized to create one homogeneous layer with common destination points. The centroids of the polygon data were calculated to be appended to the point data. For polygons that comprehended large areas (nature reserves and parks), a spatial join with the hexagonal grid was performed to assign a destination to each cell centroid that intersects these polygons.
 
